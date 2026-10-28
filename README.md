@@ -9,7 +9,7 @@
 
 | ระดับชั้น (Layer) | เทคโนโลยี / เครื่องมือ | หน้าที่และการป้องกัน |
 | :--- | :--- | :--- |
-| **Layer 1: Perimeter & Cloud Network** | DuckDNS, Azure NSG, IPset | จำกัดพอร์ตขาเข้า (80, 443, 22) และทำ Geo-blocking บล็อก IP ต่างประเทศ |
+| **Layer 1: Perimeter & Cloud Network** | DuckDNS, Azure NSG, IPset | ควบคุมสิทธิ์การเชื่อมต่อระดับเครือข่ายคลาวด์และคัดกรองทราฟฟิกที่ไม่พึงประสงค์ |
 | **Layer 2: Host & Operating System** | Ubuntu 24.04 LTS, OpenSSH, Fail2Ban | บังคับใช้ SSH Key Authentication และตรวจจับการบุกรุกผ่าน `sshd` jail |
 | **Layer 3: Reverse Proxy & Gateway** | Nginx Reverse Proxy, Let's Encrypt | จัดการ TLSv1.3, Security Headers, Rate Limiting และสกัดกั้นคำขออันตราย (HTTP 403) |
 | **Layer 4: Application Runtime** | PHP 8.3-FPM (UNIX Domain Socket) | ประมวลผลผ่าน FastCGI IPC Socket ปลอดภัยและแยกสิทธิ์โปรเซส (`www-data`) |
