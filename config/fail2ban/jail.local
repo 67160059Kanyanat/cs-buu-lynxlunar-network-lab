@@ -1,0 +1,19 @@
+[DEFAULT]
+bantime  = 1h
+findtime = 10m
+maxretry = 5
+backend  = systemd
+
+# ดักจับคนพยายามเดารหัสผ่าน SSH
+[sshd]
+enabled = true
+port    = 22
+maxretry = 3
+
+# ดักจับคนสแกนหาไฟล์อันตรายบน Nginx
+[nginx-botsearch]
+enabled  = true
+port     = http,https
+logpath  = /var/log/nginx/access.log
+backend  = auto
+maxretry = 3
